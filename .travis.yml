@@ -1,0 +1,7 @@
+sudo: required
+services:
+        - docker
+before_install:
+        - docker build -t prod_img -f Dockerfile.dev .
+script:
+        - docker run prod_img npm run test -- --coverage
